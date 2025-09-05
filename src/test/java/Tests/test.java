@@ -1,6 +1,7 @@
 package Tests;
 
 import Pages.BatchQuality;
+import Pages.EmptyShiftpage;
 import Pages.Homepage;
 import Pages.Loginpage;
 import Utils.Main;
@@ -32,8 +33,15 @@ public class test extends Main {
         BatchQuality batch = new BatchQuality(driver);
         batch.othersbuttonclick();
         batch.batchqulaityclick();
-        System.out.println("The Batchquality page opened successfully");
+        System.out.println("The Batchquality page opened successfully!!!");
 
+        //Emptyshift confirmation click
+        EmptyShiftpage shift = new EmptyShiftpage(driver);
+        shift.othersbuttonclick();
+        shift.Emptyshiftclick();
+        shift.Emptyshiftfacilty();
+        shift.Closeclick();
+        System.out.println("Empty shift confirmation page opened successfully!!!");
 
     }
   }
