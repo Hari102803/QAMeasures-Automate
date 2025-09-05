@@ -1,0 +1,12 @@
+package Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class Createcasepage {
+
+    WebDriver driver;
+
+    By others = By.id("");
+
+}
