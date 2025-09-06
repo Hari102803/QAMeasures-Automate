@@ -1,16 +1,16 @@
 package Pages;
 
+import Utils.Main;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import javax.crypto.Mac;
 import java.time.Duration;
 
 
-public class EmptyShiftpage extends BatchQuality {
-
-    WebDriver driver;
+public class EmptyShiftpage extends Main {
 
     By Emptyshift = By.id("shiftConfirmation");
     By Emptyshiftselect = By.id("emptyShiftFacility");
@@ -22,8 +22,8 @@ public class EmptyShiftpage extends BatchQuality {
 
     }
     @Override
-    public void othersbuttonclick(){
-        driver.findElement(others).click();
+    public void OthersClickservice(){
+        super.OthersClickservice();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
     }
     public void Emptyshiftclick(){
