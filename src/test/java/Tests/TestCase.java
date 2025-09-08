@@ -5,30 +5,31 @@ import Utils.Main;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class test extends Main {
+public class TestCase extends Main {
 
   @BeforeMethod
     public void setuptest(){
-        setup();
+
+      setup();
     }
     @Test
     public void Storyvalidation(){
 
         Loginpage login = new Loginpage(driver);
-        login.enterUsername("test_cl");
-        login.enterPassword("password");
+        login.enterUsername(username);
+        login.enterPassword(password);
         login.clicklogin();
-        System.out.println("Onboarding page opened successfully!!!");
+        System.out.println(Loginvalidation);
 
         Homepage home = new Homepage(driver);
         home.QALink();
-        System.out.println("QAMeasures page opened successfully!!!");
+        System.out.println(QAmeasuresvalidation);
 
         //Others button click  //Batchquality button click
         BatchQuality batch = new BatchQuality(driver);
         batch.OthersClickservice();
         batch.batchqulaityclick();
-        System.out.println("The Batchquality page opened successfully!!!");
+        System.out.println(Batchqualityvalidation);
 
         //Emptyshift confirmation click
         EmptyShiftpage shift = new EmptyShiftpage(driver);
@@ -36,16 +37,16 @@ public class test extends Main {
         shift.Emptyshiftclick();
         shift.Emptyshiftfacilty();
         shift.Closeclick();
-        System.out.println("Empty shift confirmation page opened successfully!!!");
+        System.out.println(Emptyshiftvalidation);
 
         //GasCalendarUI click //GasCalendar filtercllick //Moreshift click
         GasCalendar calendar = new GasCalendar(driver);
         calendar.OthersClickservice();
         calendar.Gascalendarservice();
         calendar.GasUIbuttonclick();
-        System.out.println("GasCalendar page opened successfully!!!");
-        calendar.filterclick("ABRAZO ARROWHEAD","test_ob");
-        System.out.println("Filter opened successfully");
+        System.out.println(CalendarValidation);
+        calendar.filterclick(Filtervalue,Providervalue);
+        System.out.println(Filtervalidation);
         calendar.Moreshiftclick();
         //System.out.println("More shift opened successfully");
 
@@ -53,8 +54,8 @@ public class test extends Main {
         AddShift add = new AddShift(driver);
         add.OthersClickservice();
         add.Gascalendarservice();
-        System.out.println("Add shift pop-up opened successfully");
-        add.Addshiftclick("06-09-2025" ,"17:20","07-09-2025" , "17:20");
+        System.out.println(Addshiftvalidation);
+        add.Addshiftclick(Fromdate,Fromatime,Todate, Totime);
 
 
     }

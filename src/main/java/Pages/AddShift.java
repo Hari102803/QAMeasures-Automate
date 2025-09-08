@@ -1,30 +1,18 @@
 package Pages;
 
 import Utils.Main;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
 import java.time.Duration;
 
 public class AddShift extends Main {
 
-    By Addshift = By.id("addShift");
-    By providerinputdrop = By.id("providerDropdown");
-    By provider = By.id("providerInput");
-    By procedureinput = By.id("procedureInput");
-    By positioninput = By.id("positionInput");
-    By fromdateinput =By.id("fromDateInput");
-    By Todateinput = By.id("toDateInput");
-    By AddBtn = By.id("modalAddBtn");
-    By clearbtn = By.id("modalClearBtn");
-
-
     public AddShift(WebDriver driver){
+
         this.driver = driver;
     }
+
     @Override
     public void OthersClickservice(){
         super.OthersClickservice();
@@ -39,36 +27,52 @@ public class AddShift extends Main {
     public void Addshiftclick(String fromDate ,String fromtime , String Todate , String Totime){
 
         driver.findElement(Addshift).click();
+        //Search Optional
+//        driver.findElement(providersearch).sendKeys("test_ob");
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.findElement(provider).click();
-        WebElement provider = driver.findElement(providerinputdrop);
+        WebElement provider = driver.findElement(providerinput);
         provider.click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        //Select providerdrop = new Select(provider);
-        provider.sendKeys(""+Keys.ENTER);
-
+        List<WebElement> providerdrops =  driver.findElements(providerDropdown);
+        for(WebElement providers : providerdrops ) {
+            if (providers.getText().equals(Providername)) {
+                providers.click();
+                break;
+            }
+        }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
         WebElement procedure = driver.findElement(procedureinput);
         procedure.click();
-        Select proceduredrop = new Select(procedure);
-        procedure.sendKeys(""+Keys.ENTER);
-
+        List<WebElement> proceduresdrop = driver.findElements(proceduredropdown);
+        for(WebElement procedures : proceduresdrop){
+            if(procedures.getText().equals(Facilityname)){
+                procedures.click();
+                break;
+            }
+        }
         if(procedure.isSelected()){
             WebElement position = driver.findElement(positioninput);
             position.click();
-            Select positiondrop = new Select(position);
-            positiondrop.selectByIndex(2);
+            List<WebElement> positiondrops = driver.findElements(positiondropdown);
+            for(WebElement positions : positiondrops){
+                if(positions.getText().equals(Positionname)){
+                    positions.click();
+                    break;
+                }
+            }
         }
         else{
             System.out.println("Please select the any one faciility!!!");
         }
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.findElement(fromdateinput).sendKeys("06-09-2025" , "17:20");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.findElement(Todateinput).sendKeys("07-09-2025" , "17:20");
+        driver.findElement(fromdateinput).sendKeys(fromDate ,fromtime);
 
-        //driver.findElement(AddBtn).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.findElement(Todateinput).sendKeys(Todate,Totime);
+
+        driver.findElement(AddBtn).click();
         driver.findElement(clearbtn).click();
 
     }

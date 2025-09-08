@@ -1,28 +1,25 @@
 package Pages;
 
-import org.openqa.selenium.By;
+import Utils.Main;
 import org.openqa.selenium.WebDriver;
 
-public class Loginpage {
-
-   WebDriver driver;
-
-
-   By Username = By.id("inputUsername");
-   By Password = By.id("inputPassword");
-   By Loginbtn = By.tagName("button");
+public class Loginpage extends Main {
 
    public Loginpage(WebDriver driver){
+
        this.driver =driver;
    }
 
    public void enterUsername(String username){
-       driver.findElement(Username).sendKeys("test_cl");
+
+       driver.findElement(Username).sendKeys(username);
    }
    public void enterPassword(String password){
-       driver.findElement(Password).sendKeys("password");
+
+       driver.findElement(Password).sendKeys(password);
    }
    public void clicklogin(){
+
        driver.findElement(Loginbtn).click();
    }
 }
