@@ -1,17 +1,14 @@
 package Pages;
 
+import Utils.Main;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class Homepage {
+public class Homepage extends Main {
 
-    WebDriver driver;
     WebDriverWait wait;
-
-    By LinkQA = By.xpath("//span[normalize-space(text())='QA Measures']");
-
 
     public Homepage(WebDriver driver) {
         this.driver = driver;
@@ -19,7 +16,8 @@ public class Homepage {
     }
 
     public void QALink() {
-       driver.findElement(LinkQA).click();
+
+        driver.findElement(LinkQA).click();
     }
 
 

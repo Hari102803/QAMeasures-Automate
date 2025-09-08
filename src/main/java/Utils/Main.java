@@ -11,10 +11,70 @@ import java.util.Map;
 
 public class Main {
 
-    public WebDriver driver;
+    public  WebDriver driver;
 
+    public By Username = By.id("inputUsername");
+    public By Password = By.id("inputPassword");
+    public By Loginbtn = By.tagName("button");
+    public By LinkQA = By.xpath("//span[normalize-space(text())='QA Measures']");
+    public By Addshift = By.id("addShift");
+    public By providerinput = By.id("providerInput");
+    //By providersearch = By.id("providerSearch");
+    public By providerDropdown = By.id("dynamicProviderList");
+    public By procedureinput = By.id("procedureInput");
+    public By proceduredropdown = By.id("procedureDropdown");
+    public By positioninput = By.id("positionInput");
+    public By positiondropdown = By.id("positionDropdown");
+    public By fromdateinput =By.id("fromDateInput");
+    public By Todateinput = By.id("toDateInput");
+    public By AddBtn = By.id("modalAddBtn");
+    public By clearbtn = By.id("modalClearBtn");
+    public By Previousbtn = By.id("prevBtn");
+    public By nextbtn = By.id("nextBtn");
+    public By Monthviewbtn = By.id("monthViewBtn");
+    public By Weekviewbtn = By.id("weekViewBtn");
+    public By Dayviewbtn = By.id("dayViewBtn");
+    public By Alltoggle = By.id("changeprovider");
+    public By Gasfilter = By.xpath("(//div[contains(@class,'col-2 col-sm-3')]//button)[2]");
+    public By filterfacilitydropdown = By.id("facilityFilterInput-ts-control");
+    public By filterproviderdropdown = By.id("providerFilterInput-ts-control");
+    public By facilitydropdownclearbtn = By.xpath("(//div[@class='ts-control']//div)[2]");
+    public By providerdropdownclearbtn = By.xpath("(//div[@class='ts-control']//div)[3]");
+    public By filterclearbtn = By.id("filterClearBtn");
+    public By filterclosebutton = By.xpath("//h5[text()='Filters']/following-sibling::button");
+    public By moreshift = By.xpath("(//div[contains(@class,'event shift-border-purple')]/following-sibling::div)[2]");
+    public By backbtn = By.xpath("(//div[contains(@class,'col-2 col-sm-3')]//button)[1]");
+    public By batch = By.id("batchQuality");
+    public By batchfacility = By.id("batchProcedureLocation");
+    public By batchsubmitbutton = By.id("multiQaSubmitButton");
+    public By batchclosepopup = By.xpath("//h5[text()='Batch Quality']/following-sibling::button");
+    public By Emptyshift = By.id("shiftConfirmation");
+    public By Emptyshiftselect = By.id("emptyShiftFacility");
+    public By Emprtshiftclear = By.id("emptyShiftClear");
+    public By Emptyclose = By.id("closeModel");
     By others = By.id("otherSection");
     By Gascalenadr = By.id("addShiftLink");
+    public String applicationURL = "https://qa-dataportal.greatergas.com/";
+    public String username = "test_cl";
+    public String password = "password";
+    public String Filtervalue = "ABRAZO ARROWHEAD";
+    public String Providervalue = "test_ob";
+    public String Providername = "Aaron Moulton";
+    public String Facilityname ="ABRAZO ARROWHEAD";
+    public String Positionname = "AAC WD Additional OT (8)";
+    public String Loginvalidation = "Onboarding page opened successfully!!!";
+    public String QAmeasuresvalidation = "QAMeasures page opened successfully!!!";
+    public String Batchqualityvalidation = "The Batchquality page opened successfully!!!";
+    public String Emptyshiftvalidation = "Empty shift confirmation page opened successfully!!!";
+    public String CalendarValidation = "GasCalendar page opened successfully!!!";
+    public String Filtervalidation = "Filter opened successfully";
+    public String Addshiftvalidation = "Add shift pop-up opened successfully";
+    public String Providervalidation = "The provider page has been displayed!!!";
+    public String Moreshiftvalidation = "The moreshift hasn't been opened";
+    public String Fromdate = "06-09-2025"; //Changeable
+    public String Fromatime = "17:20"; //Changeable
+    public String Todate = "07-09-2025"; //Changeable
+    public String Totime = "17:20";//Changeable
 
     public void setup(){
         ChromeOptions options = new ChromeOptions();
@@ -24,9 +84,8 @@ public class Main {
 
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.get("https://qa-dataportal.greatergas.com/");
+        driver.get(applicationURL);
     }
-
     public void OthersClickservice(){
         driver.findElement(others).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));

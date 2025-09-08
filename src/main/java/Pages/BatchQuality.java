@@ -1,7 +1,6 @@
 package Pages;
 
 import Utils.Main;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -10,11 +9,6 @@ import java.time.Duration;
 
 
 public class BatchQuality extends Main {
-
-    By batch = By.id("batchQuality");
-    By batchfacility = By.id("batchProcedureLocation");
-    By batchsubmitbutton = By.id("multiQaSubmitButton");
-    By batchclosepopup = By.xpath("//h5[text()='Batch Quality']/following-sibling::button");
 
     public BatchQuality(WebDriver driver) {
         this.driver = driver;
