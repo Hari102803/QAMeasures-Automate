@@ -48,7 +48,6 @@ public class TestCase extends Main {
         calendar.filterclick(Filtervalue,Providervalue);
         System.out.println(Filtervalidation);
         calendar.Moreshiftclick();
-        //System.out.println("More shift opened successfully");
 
         //Add shift click
         AddShift add = new AddShift(driver);
@@ -56,8 +55,14 @@ public class TestCase extends Main {
         add.Gascalendarservice();
         System.out.println(Addshiftvalidation);
         add.Addshiftclick(Fromdate,Fromatime,Todate, Totime);
+        System.out.println(Addshiftclosemodel);
 
-
+        //GasShiftclick
+        GasShift shiftclick = new GasShift(driver);
+        shiftclick.OthersClickservice();
+        shiftclick.Gasshiftclick(Gasfromdate,Gastodate);
+        System.out.println(Gasshiftvalidation);
+        System.out.println(Shiftclosevalidation);
     }
   }
 

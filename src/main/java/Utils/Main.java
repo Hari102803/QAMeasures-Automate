@@ -29,6 +29,7 @@ public class Main {
     public By Todateinput = By.id("toDateInput");
     public By AddBtn = By.id("modalAddBtn");
     public By clearbtn = By.id("modalClearBtn");
+    public By Addshiftclosebtn = By.id("closeModal");
     public By Previousbtn = By.id("prevBtn");
     public By nextbtn = By.id("nextBtn");
     public By Monthviewbtn = By.id("monthViewBtn");
@@ -54,6 +55,14 @@ public class Main {
     public By Emptyclose = By.id("closeModel");
     By others = By.id("otherSection");
     By Gascalenadr = By.id("addShiftLink");
+    public By Gasshift = By.id("GasShifts");
+    public By FromShift = By.id("fromShift");
+    public By ToShift = By.id("toShift");
+    public By Gasfaciities = By.id("facilities");
+    public By Shiftdropdown =By.id("shifts");
+    public By Gasshiftclosebtn = By.xpath("//div[@id='mySchedule']/div[1]/div[1]/div[1]/button[1]/span[1]");
+    public By GasSubmit = By.id("findSchedule");
+    public By GasClear = By.id("upcomingClearBtn");
     public String applicationURL = "https://qa-dataportal.greatergas.com/";
     public String username = "test_cl";
     public String password = "password";
@@ -71,10 +80,15 @@ public class Main {
     public String Addshiftvalidation = "Add shift pop-up opened successfully";
     public String Providervalidation = "The provider page has been displayed!!!";
     public String Moreshiftvalidation = "The moreshift hasn't been opened";
+    public String Addshiftclosemodel = "The addshift pop-up closed successfully!";
+    public String Gasshiftvalidation = "The Gas shift pop-up opened successfully";
+    public String Shiftclosevalidation = "The Gas shift pop-up closed successfully!!!";
     public String Fromdate = "06-09-2025"; //Changeable
     public String Fromatime = "17:20"; //Changeable
     public String Todate = "07-09-2025"; //Changeable
     public String Totime = "17:20";//Changeable
+    public String Gasfromdate = "09-09-2025";
+    public String Gastodate = "10-09-2025";
 
     public void setup(){
         ChromeOptions options = new ChromeOptions();
