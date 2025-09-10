@@ -63,6 +63,15 @@ public class TestCase extends Main {
         shiftclick.Gasshiftclick(Gasfromdate,Gastodate);
         System.out.println(Gasshiftvalidation);
         System.out.println(Shiftclosevalidation);
+
+        //GasshiftHistory click
+        Gasshifthistory history = new Gasshifthistory(driver);
+        history.OthersClickservice();
+        System.out.println(Gashistoryvalidation);
+        history.gasshifthistorryclick();
+        System.out.println(Historyclosevalidation);
+
+
     }
   }
 
