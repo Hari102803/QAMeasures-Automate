@@ -30,48 +30,17 @@ public class AddShift extends Main {
         //Search Optional
 //        driver.findElement(providersearch).sendKeys("test_ob");
 
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        WebElement provider = driver.findElement(providerinput);
-//        provider.click();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        List<WebElement> providerdrops =  driver.findElements(providerDropdown);
-//        for(WebElement providers : providerdrops ) {
-//            if (providers.getText().equals(Providername)) {
-//                providers.click();
-//                break;
-//            }
-//        }
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
-//        WebElement procedure = driver.findElement(procedureinput);
-//        procedure.click();
-//        List<WebElement> proceduresdrop = driver.findElements(proceduredropdown);
-//        for(WebElement procedures : proceduresdrop){
-//            if(procedures.getText().equals(Facilityname)){
-//                procedures.click();
-//                break;
-//            }
-//        }
-//        if(procedure.isSelected()){
-//            WebElement position = driver.findElement(positioninput);
-//            position.click();
-//            List<WebElement> positiondrops = driver.findElements(positiondropdown);
-//            for(WebElement positions : positiondrops){
-//                if(positions.getText().equals(Positionname)){
-//                    positions.click();
-//                    break;
-//                }
-//            }
-//        }
-//        else{
-//            System.out.println("Please select the any one faciility!!!");
-//        }
-//
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        driver.findElement(fromdateinput).sendKeys(fromDate ,fromtime);
-//
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        driver.findElement(Todateinput).sendKeys(Todate,Totime);
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        WebElement provider = driver.findElement(providerinput);
+        provider.click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        List<WebElement> providerdrops =  driver.findElements(providerDropdown);
+        for(WebElement providers : providerdrops ) {
+            if (providers.getText().equals(Providername)) {
+                providers.click();
+                break;
+            }
+        }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
         driver.findElement(AddBtn).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
