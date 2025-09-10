@@ -63,6 +63,13 @@ public class Main {
     public By Gasshiftclosebtn = By.xpath("//div[@id='mySchedule']/div[1]/div[1]/div[1]/button[1]/span[1]");
     public By GasSubmit = By.id("findSchedule");
     public By GasClear = By.id("upcomingClearBtn");
+    public By Gashistory = By.id("GasHistory");
+    public By Transfertab = By.linkText("Transfer History");
+    public By Swaptab =By.linkText("Swap History");
+    public By Sharetab = By.linkText("Share History");
+    public By QAtab = By.linkText("QA History");
+    public By MissingQAtab = By.linkText("Missing QA");
+    public By gashistorybackbtn =  By.xpath("//a[@class='back-button']//button[1]");
     public String applicationURL = "https://qa-dataportal.greatergas.com/";
     public String username = "test_cl";
     public String password = "password";
@@ -83,6 +90,8 @@ public class Main {
     public String Addshiftclosemodel = "The addshift pop-up closed successfully!";
     public String Gasshiftvalidation = "The Gas shift pop-up opened successfully";
     public String Shiftclosevalidation = "The Gas shift pop-up closed successfully!!!";
+    public String Gashistoryvalidation = "Gas shift history page opened successfully";
+    public String Historyclosevalidation = "Gas shift history page closed successfully";
     public String Fromdate = "06-09-2025"; //Changeable
     public String Fromatime = "17:20"; //Changeable
     public String Todate = "07-09-2025"; //Changeable
@@ -108,5 +117,4 @@ public class Main {
         driver.findElement(Gascalenadr).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
     }
-
 }
