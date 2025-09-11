@@ -54,7 +54,7 @@ public class TestCase extends Main {
         add.OthersClickservice();
         add.Gascalendarservice();
         System.out.println(Addshiftvalidation);
-        add.Addshiftclick(Fromdate,Fromatime,Todate, Totime);
+        add.Addshiftclick(Fromdate,Fromtime,Todate, Totime);
         System.out.println(Addshiftclosemodel);
 
         //GasShiftclick
@@ -69,10 +69,15 @@ public class TestCase extends Main {
         history.OthersClickservice();
         System.out.println(Gashistoryvalidation);
         history.gasshifthistorryclick();
+        history.GashifttabsClick();
         System.out.println(Historyclosevalidation);
 
-
+        //Globalcase click
+        Globalcase global = new Globalcase(driver);
+        global.OthersClickservice();
+        global.Globalcaseclick();
+        System.out.println(Globalcasevalidation);
+        global.Globalclose();
+        System.out.println(Globalclosevalidation);
     }
-  }
-
-
+}

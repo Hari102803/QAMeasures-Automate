@@ -10,6 +10,7 @@ import java.time.Duration;
 public class GasShift extends Main {
 
     public GasShift(WebDriver driver) {
+
         this.driver = driver;
     }
     @Override
