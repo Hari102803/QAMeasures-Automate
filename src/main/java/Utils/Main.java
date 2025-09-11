@@ -70,6 +70,15 @@ public class Main {
     public By QAtab = By.linkText("QA History");
     public By MissingQAtab = By.linkText("Missing QA");
     public By gashistorybackbtn =  By.xpath("//a[@class='back-button']//button[1]");
+    public By Globalcase = By.id("global");
+    public By Organizationdrop = By.id("organization");
+    public By Globalfacility = By.id("facility");
+    public By Globalsite = By.id("globalSite");
+    public By Globasurgeon = By.id("globalSurgeon");
+    public By globalSurgeondropdown = By.id("globalSurgeon-dropdown-list");
+    public By Globalsubmitbtn = By.id("globalAllCase");
+    public By Globalclearbtn = By.id("clearButton");
+    public By Globalclosebtn = By.xpath("//div[@id='globalCase']/div[1]/div[1]/div[1]/button[1]/span[1]");
     public String applicationURL = "https://qa-dataportal.greatergas.com/";
     public String username = "test_cl";
     public String password = "password";
@@ -92,8 +101,10 @@ public class Main {
     public String Shiftclosevalidation = "The Gas shift pop-up closed successfully!!!";
     public String Gashistoryvalidation = "Gas shift history page opened successfully";
     public String Historyclosevalidation = "Gas shift history page closed successfully";
+    public String Globalcasevalidation = "The Global case pop-up opened successfully!!!";
+    public String Globalclosevalidation = "The Global case pop-up closed successfully";
     public String Fromdate = "06-09-2025"; //Changeable
-    public String Fromatime = "17:20"; //Changeable
+    public String Fromtime = "17:20"; //Changeable
     public String Todate = "07-09-2025"; //Changeable
     public String Totime = "17:20";//Changeable
     public String Gasfromdate = "09-09-2025";
@@ -117,4 +128,5 @@ public class Main {
         driver.findElement(Gascalenadr).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
     }
+
 }
