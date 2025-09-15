@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
@@ -79,6 +78,12 @@ public class Main {
     public By Globalsubmitbtn = By.id("globalAllCase");
     public By Globalclearbtn = By.id("clearButton");
     public By Globalclosebtn = By.xpath("//div[@id='globalCase']/div[1]/div[1]/div[1]/button[1]/span[1]");
+    public By Peeofforder = By.id("todayGoHomeListLink");
+    public By Orderfacility =By.id("facilitySearch");
+    public By Orderfacilitydrop = By.xpath("//ul[@id='facilityListData']//li[contains(text(),'BANNER IRONWOOD MEDICAL CENTER')]");
+    public By SearchDate = By.id("searchDate");
+    public By Ordersubmit = By.id("submitDate");
+    public By Orderbackbutton = By.xpath("//div[@class='d-flex justify-content-end']//a[1]");
     public String applicationURL = "https://qa-dataportal.greatergas.com/";
     public String username = "test_cl";
     public String password = "password";
@@ -103,12 +108,15 @@ public class Main {
     public String Historyclosevalidation = "Gas shift history page closed successfully";
     public String Globalcasevalidation = "The Global case pop-up opened successfully!!!";
     public String Globalclosevalidation = "The Global case pop-up closed successfully";
+    public String Peeloffordervalidation = "The peel off order page opened successfully";
+    public String Orderclosevalidation = "The peel off order page closed successfully";
     public String Fromdate = "06-09-2025"; //Changeable
     public String Fromtime = "17:20"; //Changeable
     public String Todate = "07-09-2025"; //Changeable
     public String Totime = "17:20";//Changeable
     public String Gasfromdate = "09-09-2025";
     public String Gastodate = "10-09-2025";
+    public String Orderdate = "31-01-2025";
 
     public void setup(){
         ChromeOptions options = new ChromeOptions();
@@ -128,5 +136,4 @@ public class Main {
         driver.findElement(Gascalenadr).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
     }
-
 }

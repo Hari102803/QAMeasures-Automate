@@ -79,5 +79,14 @@ public class TestCase extends Main {
         System.out.println(Globalcasevalidation);
         global.Globalclose();
         System.out.println(Globalclosevalidation);
+
+        //Peeloff Order click
+        PeeloffOrder order = new PeeloffOrder(driver);
+        order.OthersClickservice();
+        System.out.println(Peeloffordervalidation);
+        order.Peelofforderclick(Orderdate);
+        order.orderclose();
+        System.out.println(Orderclosevalidation);
     }
+
 }
