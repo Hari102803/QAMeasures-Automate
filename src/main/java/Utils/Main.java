@@ -2,10 +2,12 @@ package Utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Main {
@@ -16,6 +18,10 @@ public class Main {
     public By Password = By.id("inputPassword");
     public By Loginbtn = By.tagName("button");
     public By LinkQA = By.xpath("//span[normalize-space(text())='QA Measures']");
+    By choosefacility = By.id("facilityList");
+    By selectfaility = By.xpath("(//div[@class='fs-09'])[1]");
+    By Homesubmitbtn = By.xpath("//div[@class='facility-center d-flex']//button[1]");
+    public By transfercase = By.id("transferCase");
     public By Addshift = By.id("addShift");
     public By providerinput = By.id("providerInput");
     //By providersearch = By.id("providerSearch");
@@ -64,6 +70,8 @@ public class Main {
     public By GasClear = By.id("upcomingClearBtn");
     public By Gashistory = By.id("GasHistory");
     public By Transfertab = By.linkText("Transfer History");
+    public By paginationnumber = By.linkText("2");
+    public By Previous = By.linkText("Previous");
     public By Swaptab =By.linkText("Swap History");
     public By Sharetab = By.linkText("Share History");
     public By QAtab = By.linkText("QA History");
@@ -110,6 +118,7 @@ public class Main {
     public String Globalclosevalidation = "The Global case pop-up closed successfully";
     public String Peeloffordervalidation = "The peel off order page opened successfully";
     public String Orderclosevalidation = "The peel off order page closed successfully";
+    public String Transfercsevalidation = "The transfer case pop-up opened successfully";
     public String Fromdate = "06-09-2025"; //Changeable
     public String Fromtime = "17:20"; //Changeable
     public String Todate = "07-09-2025"; //Changeable
@@ -135,5 +144,24 @@ public class Main {
     public void Gascalendarservice(){
         driver.findElement(Gascalenadr).click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
+    }
+    public void choosefacility(){
+        WebElement choose = driver.findElement(choosefacility);
+        choose.click();
+        List<WebElement> choosefacilities = driver.findElements(selectfaility);
+        for(WebElement choosing : choosefacilities){
+            if(choosing.getText().equalsIgnoreCase("Select All")){
+                choosing.click();
+                break;
+            }
+            if(choosing.isEnabled()){
+                driver.findElement(Homesubmitbtn).click();
+                System.out.println("The facility is selected successfully" + choosing.getText());
+            }
+            else{
+                System.out.println("Please select any one facility!!!");
+            }
+        }
+
     }
 }
