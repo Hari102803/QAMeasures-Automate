@@ -70,6 +70,7 @@ public class TestCase extends Main {
         System.out.println(Gashistoryvalidation);
         history.gasshifthistorryclick();
         history.GashifttabsClick();
+        history.Historybackbtn();
         System.out.println(Historyclosevalidation);
 
         //Globalcase click
@@ -87,6 +88,14 @@ public class TestCase extends Main {
         order.Peelofforderclick(Orderdate);
         order.orderclose();
         System.out.println(Orderclosevalidation);
+
+        //Transfer case page click
+        Transfercasepage transfer = new Transfercasepage(driver);
+        transfer.choosefacility();
+        transfer.OthersClickservice();
+        transfer.Transfercaseclick();
+        System.out.println(Transfercsevalidation);
+
     }
 
 }
