@@ -2,7 +2,7 @@ package Pages;
 
 import Utils.Main;
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.WebElement;
 import java.time.Duration;
 
 public class Transfercasepage extends Main {
@@ -22,6 +22,15 @@ public class Transfercasepage extends Main {
     }
     public void Transfercaseclick(){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
-        driver.findElement(transfercase).click();
+        WebElement Transfercase = driver.findElement(transfercase);
+        Transfercase.click();
+        if(Transfercase.isDisplayed()){
+            System.out.println(Transfercsevalidation);
+        }
+    }
+    public void Transferclosebtn(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
+        WebElement transferclose = driver.findElement(transferclosebtn);
+        transferclose.click();
     }
 }

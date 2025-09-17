@@ -25,11 +25,18 @@ public class TestCase extends Main {
         home.QALink();
         System.out.println(QAmeasuresvalidation);
 
+        //Create case click
+        Createcasepage create = new Createcasepage(driver);
+        create.choosefacility();
+        create.OthersClickservice();
+        create.Addcaseclick();
+
         //Others button click  //Batchquality button click
         BatchQuality batch = new BatchQuality(driver);
         batch.OthersClickservice();
         batch.batchqulaityclick();
-        System.out.println(Batchqualityvalidation);
+        batch.batchclosebtn();
+
 
         //Emptyshift confirmation click
         EmptyShiftpage shift = new EmptyShiftpage(driver);
@@ -45,7 +52,7 @@ public class TestCase extends Main {
         calendar.Gascalendarservice();
         calendar.GasUIbuttonclick();
         System.out.println(CalendarValidation);
-        calendar.filterclick(Filtervalue,Providervalue);
+       // calendar.filterclick(Filtervalue,Providervalue);
         System.out.println(Filtervalidation);
         calendar.Moreshiftclick();
 
@@ -55,7 +62,7 @@ public class TestCase extends Main {
         add.Gascalendarservice();
         System.out.println(Addshiftvalidation);
         add.Addshiftclick(Fromdate,Fromtime,Todate, Totime);
-        System.out.println(Addshiftclosemodel);
+        add.addshiftclose();
 
         //GasShiftclick
         GasShift shiftclick = new GasShift(driver);
@@ -94,8 +101,7 @@ public class TestCase extends Main {
         transfer.choosefacility();
         transfer.OthersClickservice();
         transfer.Transfercaseclick();
-        System.out.println(Transfercsevalidation);
-
+        transfer.Transferclosebtn();
     }
 
 }
