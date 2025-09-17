@@ -14,6 +14,7 @@ public class Main {
 
     public  WebDriver driver;
 
+
     public By Username = By.id("inputUsername");
     public By Password = By.id("inputPassword");
     public By Loginbtn = By.tagName("button");
@@ -21,15 +22,19 @@ public class Main {
     By choosefacility = By.id("facilityList");
     By selectfaility = By.xpath("(//div[@class='fs-09'])[1]");
     By Homesubmitbtn = By.xpath("//div[@class='facility-center d-flex']//button[1]");
+    public By Ortoggle = By.id("orProvider");
+    public By Obtoggle = By.id("obProvider");
+    public By Addcase = By.id("addCaseValue");
     public By transfercase = By.id("transferCase");
+    public By transferclosebtn = By.xpath("//h5[text()='Available Cases']/following-sibling::button");
     public By Addshift = By.id("addShift");
     public By providerinput = By.id("providerInput");
     //By providersearch = By.id("providerSearch");
-    public By providerDropdown = By.id("dynamicProviderList");
+    public By providerDropdown = By.xpath("//div[@id='dynamicProviderList']//li[1]");
     public By procedureinput = By.id("procedureInput");
-    public By proceduredropdown = By.id("procedureDropdown");
+    public By proceduredropdown = By.xpath("//ul[@id='procedureDropdown']//li[1]");
     public By positioninput = By.id("positionInput");
-    public By positiondropdown = By.id("positionDropdown");
+    public By positiondropdown = By.xpath("//ul[@id='positionDropdown']//li[2]");
     public By fromdateinput =By.id("fromDateInput");
     public By Todateinput = By.id("toDateInput");
     public By AddBtn = By.id("modalAddBtn");
@@ -95,14 +100,10 @@ public class Main {
     public String applicationURL = "https://qa-dataportal.greatergas.com/";
     public String username = "test_cl";
     public String password = "password";
-    public String Filtervalue = "ABRAZO ARROWHEAD";
-    public String Providervalue = "test_ob";
-    public String Providername = "Aaron Moulton";
-    public String Facilityname ="ABRAZO ARROWHEAD";
-    public String Positionname = "AAC WD Additional OT (8)";
     public String Loginvalidation = "Onboarding page opened successfully!!!";
     public String QAmeasuresvalidation = "QAMeasures page opened successfully!!!";
-    public String Batchqualityvalidation = "The Batchquality page opened successfully!!!";
+    public String Batchqualityvalidation = "The Batchquality pop-up closed successfully!!!";
+    public String Notclosebatchvalidation = "The batch quality pop-up not closed!!!";
     public String Emptyshiftvalidation = "Empty shift confirmation page opened successfully!!!";
     public String CalendarValidation = "GasCalendar page opened successfully!!!";
     public String Filtervalidation = "Filter opened successfully";
@@ -119,6 +120,8 @@ public class Main {
     public String Peeloffordervalidation = "The peel off order page opened successfully";
     public String Orderclosevalidation = "The peel off order page closed successfully";
     public String Transfercsevalidation = "The transfer case pop-up opened successfully";
+    public String NotSelectvalidation = "Please select any one facility!!!";
+    public String PopupNotSelectvalidation = "The pop-up is not closed!!";
     public String Fromdate = "06-09-2025"; //Changeable
     public String Fromtime = "17:20"; //Changeable
     public String Todate = "07-09-2025"; //Changeable
@@ -154,14 +157,8 @@ public class Main {
                 choosing.click();
                 break;
             }
-            if(choosing.isEnabled()){
-                driver.findElement(Homesubmitbtn).click();
-                System.out.println("The facility is selected successfully" + choosing.getText());
-            }
-            else{
-                System.out.println("Please select any one facility!!!");
-            }
         }
-
+        WebElement submit = driver.findElement(Homesubmitbtn);
+        submit.click();
     }
 }
