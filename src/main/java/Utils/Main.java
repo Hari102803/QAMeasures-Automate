@@ -14,7 +14,6 @@ public class Main {
 
     public  WebDriver driver;
 
-
     public By Username = By.id("inputUsername");
     public By Password = By.id("inputPassword");
     public By Loginbtn = By.tagName("button");
@@ -25,6 +24,7 @@ public class Main {
     public By Ortoggle = By.id("orProvider");
     public By Obtoggle = By.id("obProvider");
     public By Addcase = By.id("addCaseValue");
+    public By Addcaseclosebtn = By.cssSelector("button.close-button[aria-label='Close']");
     public By transfercase = By.id("transferCase");
     public By transferclosebtn = By.xpath("//h5[text()='Available Cases']/following-sibling::button");
     public By Addshift = By.id("addShift");

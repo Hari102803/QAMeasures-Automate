@@ -17,7 +17,6 @@ public class BatchQuality extends Main {
     public void OthersClickservice(){
         WebElement OBsite = driver.findElement(Obtoggle);
         WebElement ORsite = driver.findElement(Ortoggle);
-
         if(OBsite.isDisplayed()){
             ORsite.click();
         }
