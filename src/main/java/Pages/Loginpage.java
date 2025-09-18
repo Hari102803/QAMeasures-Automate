@@ -2,6 +2,7 @@ package Pages;
 
 import Utils.Main;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class Loginpage extends Main {
 
@@ -20,7 +21,8 @@ public class Loginpage extends Main {
    }
    public void clicklogin(){
 
-       driver.findElement(Loginbtn).click();
+       WebElement onboard = driver.findElement(Loginbtn);
+       onboard.click();
    }
 }
 

@@ -13,7 +13,7 @@ public class TestCase extends Main {
       setup();
     }
     @Test
-    public void Storyvalidation(){
+    public void Storyvalidation() throws InterruptedException {
 
         Loginpage login = new Loginpage(driver);
         login.enterUsername(username);
@@ -30,13 +30,15 @@ public class TestCase extends Main {
         create.choosefacility();
         create.OthersClickservice();
         create.Addcaseclick();
+        create.CreateData();
+        create.Addcloseclick();
+
 
         //Others button click  //Batchquality button click
         BatchQuality batch = new BatchQuality(driver);
         batch.OthersClickservice();
         batch.batchqulaityclick();
         batch.batchclosebtn();
-
 
         //Emptyshift confirmation click
         EmptyShiftpage shift = new EmptyShiftpage(driver);

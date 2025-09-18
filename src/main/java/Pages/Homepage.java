@@ -20,7 +20,6 @@ public class Homepage extends Main {
         driver.findElement(LinkQA).click();
     }
 
-
 }
 
 
