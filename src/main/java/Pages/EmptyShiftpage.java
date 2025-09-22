@@ -14,7 +14,7 @@ public class EmptyShiftpage extends Main {
 
     }
     @Override
-    public void OthersClickservice(){
+    public void OthersClickservice()throws InterruptedException{
         super.OthersClickservice();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
     }

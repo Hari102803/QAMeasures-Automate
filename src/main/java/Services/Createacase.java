@@ -4,18 +4,11 @@ import Pages.Createcasepage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import javax.swing.*;
-import java.time.Duration;
 
 public class Createacase extends Createcasepage {
 
     public Createacase(WebDriver driver){
         super(driver);
-    }
-    @Override
-    public void Addcaseclick() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
-        super.Addcaseclick();
     }
     public void CreateORdata(String firstname , String lastname, String ORdob) throws InterruptedException {
         Thread.sleep(1000);
@@ -99,9 +92,7 @@ public class Createacase extends Createcasepage {
             Select TechniqueSelect = new Select(Technique);
             TechniqueSelect.selectByIndex(1);
         }
-        else{
-            JOptionPane.showMessageDialog(null,"Please select any one procedure");
-        }
+
         Thread.sleep(1000);
         driver.findElement(Dob).sendKeys(dob);
     }

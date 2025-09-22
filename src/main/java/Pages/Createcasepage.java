@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import java.time.Duration;
 import Services.Createacase;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Createcasepage extends Main {
     //CreatecaseOR
@@ -17,6 +19,7 @@ public class Createcasepage extends Main {
     public By NotObService = By.id("notObService");
     public By NotObSite = By.id("notObSite");
     public By NotObDob = By.id("notObDob");
+
     //CreatecaseOB
     public By Firstname = By.id("firstname");
     public By Lastname = By.id("lastname");
@@ -26,42 +29,50 @@ public class Createcasepage extends Main {
     public By Procedure = By.id("procedure");
     public By SubProcedure = By.id("subProcedure");
     public By Dob = By.id("dob");
+
+    // AddCase buttons
     public String firstdata = "Automate";
     public String lastdata = "test";
-    public String ORDate = "19-09-2025";
-    public String OBDate = "19-09-2025";
+    public String Date = "19-09-2025";
 
     public Createcasepage(WebDriver driver) {
         this.driver = driver;
     }
+
     @Override
     public void choosefacility(){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
         super.choosefacility();
     }
-
     @Override
-    public void OthersClickservice(){
+    public void OthersClickservice() throws InterruptedException {
+        Createacase caseData = new Createacase(driver);
+
         WebElement OBsite = driver.findElement(Obtoggle);
         WebElement ORsite = driver.findElement(Ortoggle);
-        if(ORsite.isEnabled()){
-            OBsite.click();
+
+        if (ORsite.isDisplayed()) {
+            super.OthersClickservice();
+            Addcaseclick(true);
+            caseData.CreateORdata(firstdata, lastdata, Date);
         }
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
-        super.OthersClickservice();
+        else if (OBsite.isDisplayed()) {
+            super.OthersClickservice();
+            Addcaseclick(false);
+            caseData.CreateOBData(firstdata, lastdata, Date);
+        }
     }
-    public void Addcaseclick(){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
-        driver.findElement(Addcase).click();
-    }
-    public void CreateData() throws InterruptedException {
-        Createacase create =  new Createacase(driver);
-        //create.CreateORdata(firstdata,lastdata,ORDate);
-        create.CreateOBData(firstdata,lastdata,OBDate);
+    public void Addcaseclick(boolean isOR) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        if (isOR) {
+            WebElement addCaseBtn = wait.until(ExpectedConditions.elementToBeClickable(AddcaseORsite));
+            addCaseBtn.click();
+        } else {
+            WebElement addCaseBtn = wait.until(ExpectedConditions.elementToBeClickable(AddcaseOBsite));
+            addCaseBtn.click();
+        }
     }
     public void Addcloseclick(){
         driver.findElement(Addcaseclosebtn).click();
     }
 }
-
-
