@@ -29,8 +29,6 @@ public class TestCase extends Main {
         Createcasepage create = new Createcasepage(driver);
         create.choosefacility();
         create.OthersClickservice();
-        create.Addcaseclick();
-        create.CreateData();
        // create.Addcloseclick();
 
 
@@ -105,5 +103,4 @@ public class TestCase extends Main {
 //        transfer.Transfercaseclick();
 //        transfer.Transferclosebtn();
     }
-
 }

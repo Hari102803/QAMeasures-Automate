@@ -16,7 +16,7 @@ public class Transfercasepage extends Main {
         super.choosefacility();
     }
     @Override
-    public void OthersClickservice(){
+    public void OthersClickservice()throws InterruptedException{
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
         super.OthersClickservice();
     }
