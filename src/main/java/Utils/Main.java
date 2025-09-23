@@ -23,8 +23,8 @@ public class Main {
     By Homesubmitbtn = By.xpath("//div[@class='facility-center d-flex']//button[1]");
     public By Ortoggle = By.id("orProvider");
     public By Obtoggle = By.id("obProvider");
-    public By AddcaseORsite = By.cssSelector("a[onclick=\"notObAddCase('addCase');\"]");
-    public By AddcaseOBsite = By.cssSelector("a[onclick=\"obAddCase('addCase');\"]");
+    public By AddcaseORsite = By.id("addCaseValue");
+    public By AddcaseOBsite = By.id("addCaseValue");
     public By Addcaseclosebtn = By.cssSelector("button.close-button[aria-label='Close']");
     public By transfercase = By.id("transferCase");
     public By transferclosebtn = By.xpath("//h5[text()='Available Cases']/following-sibling::button");
