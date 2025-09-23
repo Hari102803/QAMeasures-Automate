@@ -19,7 +19,9 @@ public class Createcasepage extends Main {
     public By NotObService = By.id("notObService");
     public By NotObSite = By.id("notObSite");
     public By NotObDob = By.id("notObDob");
-
+    public By Savebutton = By.xpath("(//button[contains(@class,'btn btn-outline-primary')])[3]");
+    public By SaveandQA = By.id("actionButton");
+    public By Uploadrecordsbtn = By.id("uploadButton");
     //CreatecaseOB
     public By Firstname = By.id("firstname");
     public By Lastname = By.id("lastname");
@@ -29,8 +31,7 @@ public class Createcasepage extends Main {
     public By Procedure = By.id("procedure");
     public By SubProcedure = By.id("subProcedure");
     public By Dob = By.id("dob");
-
-    // AddCase buttons
+    // AddCaseValues
     public String firstdata = "Automate";
     public String lastdata = "test";
     public String Date = "19-09-2025";
@@ -47,11 +48,9 @@ public class Createcasepage extends Main {
     @Override
     public void OthersClickservice() throws InterruptedException {
         Createacase caseData = new Createacase(driver);
-
         WebElement OBsite = driver.findElement(Obtoggle);
         WebElement ORsite = driver.findElement(Ortoggle);
-
-        if (ORsite.isDisplayed()) {
+        if (ORsite.isEnabled()) {
             super.OthersClickservice();
             Addcaseclick(true);
             caseData.CreateORdata(firstdata, lastdata, Date);
@@ -64,7 +63,7 @@ public class Createcasepage extends Main {
     }
     public void Addcaseclick(boolean isOR) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        if (isOR) {
+        if(isOR) {
             WebElement addCaseBtn = wait.until(ExpectedConditions.elementToBeClickable(AddcaseORsite));
             addCaseBtn.click();
         } else {

@@ -3,14 +3,17 @@ package Services;
 import Pages.Createcasepage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class Createacase extends Createcasepage {
 
     public Createacase(WebDriver driver){
         super(driver);
     }
-    public void CreateORdata(String firstname , String lastname, String ORdob) throws InterruptedException {
+    public void CreateORdata(String firstname , String lastname, String ORdob) throws InterruptedException{
         Thread.sleep(1000);
         driver.findElement(NotObFirstName).sendKeys(firstname);
         Thread.sleep(1000);
@@ -46,7 +49,7 @@ public class Createacase extends Createcasepage {
             Select YesSelect = new Select(YesOptions);
             YesSelect.selectByIndex(2);
         }
-         if(OutofOrservice2.isDisplayed()){
+         else if(OutofOrservice2.isDisplayed()){
             WebElement NoOptions = driver.findElement(NotObSite);
             NoOptions.click();
             Select NoSelect = new Select(NoOptions);
@@ -54,6 +57,10 @@ public class Createacase extends Createcasepage {
         }
         Thread.sleep(1000);
         driver.findElement(NotObDob).sendKeys(ORdob);
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(Savebutton));
+        button.click();
     }
     public void CreateOBData(String firstname, String lastname, String dob) throws InterruptedException {
         Thread.sleep(1000);
@@ -92,7 +99,6 @@ public class Createacase extends Createcasepage {
             Select TechniqueSelect = new Select(Technique);
             TechniqueSelect.selectByIndex(1);
         }
-
         Thread.sleep(1000);
         driver.findElement(Dob).sendKeys(dob);
     }
