@@ -1,24 +1,27 @@
 package Pages;
 
-import Utils.Main;
+import Config.DriverManager;
+import Config.Locators;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
+import static Config.DriverManager.driver;
 
-public class Homepage extends Main {
 
-    WebDriverWait wait;
+public class Homepage{
 
-    public Homepage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(8));
-    }
+  WebDriverWait wait;
 
-    public void QALink() {
+  public Homepage(WebDriver driver) {
+    DriverManager.driver = driver;
+    this.wait = new WebDriverWait(driver, Duration.ofSeconds(8));
+  }
 
-        driver.findElement(LinkQA).click();
-    }
+  public void QALink() {
+
+    driver.findElement(Locators.LINK_QA)
+        .click();
+  }
 
 }
 
