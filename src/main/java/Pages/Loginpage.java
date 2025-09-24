@@ -1,28 +1,33 @@
 package Pages;
 
-import Utils.Main;
+import Config.DriverManager;
+import Config.Locators;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import static Config.DriverManager.driver;
 
-public class Loginpage extends Main {
+public class Loginpage {
 
-   public Loginpage(WebDriver driver){
+  public Loginpage(WebDriver driver) {
+    DriverManager.driver=driver;
+  }
 
-       this.driver =driver;
-   }
+  public void enterUsername(String username) {
 
-   public void enterUsername(String username){
+    driver.findElement(Locators.USERNAME)
+        .sendKeys(username);
+  }
 
-       driver.findElement(Username).sendKeys(username);
-   }
-   public void enterPassword(String password){
+  public void enterPassword(String password) {
 
-       driver.findElement(Password).sendKeys(password);
-   }
-   public void clicklogin(){
+    driver.findElement(Locators.PASSWORD)
+        .sendKeys(password);
+  }
 
-       WebElement onboard = driver.findElement(Loginbtn);
-       onboard.click();
-   }
+  public void clicklogin() {
+
+    WebElement onboard = driver.findElement(Locators.LOGIN_BTN);
+    onboard.click();
+  }
 }
 
