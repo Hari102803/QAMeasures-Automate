@@ -13,6 +13,8 @@ public class Locators {
   public static final By HOME_SUBMIT_BTN = By.xpath("//div[@class='facility-center d-flex']//button[1]");
   public static final By OR_TOGGLE = By.id("orProvider");
   public static final By OB_TOGGLE = By.id("obProvider");
+  public static final By OR_LABEL = By.id("orShift");
+  public static final By OB_LABEL = By.id("obShift");
   public static final By ADD_CASE_OR_SITE = By.id("addCaseValue");
   public static final By ADD_CASE_OB_SITE = By.id("addCaseValue");
   public static final By ADD_CASE_CLOSE_BTN = By.cssSelector("button.close-button[aria-label='Close']");
@@ -99,7 +101,8 @@ public class Locators {
   public static final By NOT_OB_SAVE_BUTTON = By.xpath("//*[@id=\"notOBNewCaseAdd\"]/div/div/div[3]/button[3]");
   public static final By NOT_OB_UPLOAD_BUTTON = By.xpath("//*[@id=\"notOBNewCaseAdd\"]/div/div/div[3]/button[2]");
   public static final By NOT_OB_COMPLETEQA_BUTTON = By.xpath("//*[@id=\"notOBNewCaseAdd\"]/div/div/div[3]/button[1]");
-  public static final By POPUP_CONFIRM = By.id("dobConfirmBtn");
+  public static final By POPUP_CONFIRM = By.xpath("//div[@class='modal-footer justify-content-center']//button[1]");
+  public static final By CLOSE_MODEL =By.id("closeModal");
   // Create OB Case locators
   public static final By FIRST_NAME_OB = By.id("firstname");
   public static final By LAST_NAME_OB = By.id("lastname");
@@ -117,4 +120,7 @@ public class Locators {
   public static final By ADVERSE_NO = By.id("advisoryEventsValueNo");
   public static final By ADVERSE_EVENT_LIST = By.xpath("(//div[@class='text-center optionbox']//div)[2]");
   public static final By UPLOAD_PAGE = By.id("uploadfile");
+
+  public static final By DOCUMENT_EMERGENCY_YES = By.id("obFlowDocumentEmergencyYes");
+  public static final By DOCUMENT_EMERGENCY_NO = By.id("obFlowDocumentEmergencyNo");
 }

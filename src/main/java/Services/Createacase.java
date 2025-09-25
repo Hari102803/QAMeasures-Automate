@@ -42,43 +42,43 @@ public class Createacase{
     OutofOrservice1.click();
     Select OutOrserviceSelect1 = new Select(OutofOrservice1);
     OutOrserviceSelect1.selectByIndex(1);
-
-        Thread.sleep(1000);
-        WebElement OutofOrservice2 = driver.findElement(Locators.NOT_OB_OPTION);
-        OutofOrservice2.click();
-        Select OutOrserviceSelect2 = new Select(OutofOrservice2);
-        OutOrserviceSelect2.selectByIndex(2);
+//
+//        Thread.sleep(1000);
+//        WebElement OutofOrservice2 = driver.findElement(Locators.NOT_OB_OPTION);
+//        OutofOrservice2.click();
+//        Select OutOrserviceSelect2 = new Select(OutofOrservice2);
+//        OutOrserviceSelect2.selectByIndex(2);
 
     if (OutofOrservice1.isDisplayed()) {
       WebElement YesOptions = driver.findElement(Locators.NOT_OB_SERVICE);
       YesOptions.click();
       Select YesSelect = new Select(YesOptions);
       YesSelect.selectByIndex(2);
+//    }
+//         else if(OutofOrservice2.isDisplayed()){
+//            WebElement NoOptions = driver.findElement(Locators.NOT_OB_SITE);
+//            NoOptions.click();
+//            Select NoSelect = new Select(NoOptions);
+//            NoSelect.selectByIndex(3);
+//        }
+      Thread.sleep(1000);
+      driver
+          .findElement(Locators.NOT_OB_DOB)
+          .sendKeys(ORdob);
     }
-         else if(OutofOrservice2.isDisplayed()){
-            WebElement NoOptions = driver.findElement(Locators.NOT_OB_SITE);
-            NoOptions.click();
-            Select NoSelect = new Select(NoOptions);
-            NoSelect.selectByIndex(3);
-        }
-    Thread.sleep(1000);
-    driver
-        .findElement(Locators.NOT_OB_DOB)
-        .sendKeys(ORdob);
-
   }
   public void  ButtonsORclick() throws InterruptedException {
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    WebElement Seavebutton = wait
+    WebElement Savebutton = wait
         .until(ExpectedConditions.elementToBeClickable(Locators.NOT_OB_SAVE_BUTTON));
-    Seavebutton.click();
+    //Seavebutton.click();
     WebElement SaveCompleteQA = wait
         .until(ExpectedConditions.elementToBeClickable(Locators.NOT_OB_COMPLETEQA_BUTTON));
     SaveCompleteQA.click();
     WebElement SaveUpload = wait
-        .until(ExpectedConditions.elementToBeClickable(Locators.NOT_OB_COMPLETEQA_BUTTON));
-    SaveUpload.click();
-    if(Seavebutton.isEnabled()){
+        .until(ExpectedConditions.elementToBeClickable(Locators.NOT_OB_UPLOAD_BUTTON));
+    //SaveUpload.click();
+    if(Savebutton.isEnabled()){
       driver
           .manage()
           .timeouts()
@@ -87,12 +87,25 @@ public class Createacase{
           .click();
     }
     else
-    if(SaveCompleteQA.isEnabled()){
+    if(SaveCompleteQA.isDisplayed()){
       driver.findElement(Locators.POPUP_CONFIRM)
           .click();
+      driver.findElement(Locators.CLOSE_MODEL)
+          .click();
       QAflow flow = new QAflow(driver);
-      flow.ORsiteQAflow();
+      flow.ORsiteQAflowYES();
+      flow.ORsiteQAflowNO();
     }
+    else
+      if(SaveUpload.isEnabled()){
+        driver.findElement(Locators.POPUP_CONFIRM)
+            .click();
+        driver
+            .manage()
+            .timeouts()
+                .implicitlyWait(Duration.ofSeconds(10));
+        driver.findElement(Locators.UPLOAD_PAGE).click();
+      }
   }
   public void CreateOBData(String firstname, String lastname, String dob) throws InterruptedException {
     Thread.sleep(1000);
@@ -136,5 +149,42 @@ public class Createacase{
     Thread.sleep(1000);
     driver.findElement(Locators.DOB_OB)
         .sendKeys(dob);
+  }
+  public void OBButtonclick(){
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebElement SavebuttonOB = wait
+        .until(ExpectedConditions.elementToBeClickable(Locators.SAVE_BTN));
+    //SavebuttonOB.click();
+    WebElement SaveCompleteQAOB = wait
+        .until(ExpectedConditions.elementToBeClickable(Locators.SAVE_AND_QA));
+    //SaveCompleteQAOB.click();
+    WebElement SaveUploadOB = wait
+        .until(ExpectedConditions.elementToBeClickable(Locators.UPLOAD_RECORDS_BTN));
+    SaveUploadOB.click();
+
+    if(SavebuttonOB.isEnabled()){
+      driver.findElement(Locators.POPUP_CONFIRM)
+          .click();
+    }
+    else
+      if(SaveCompleteQAOB.isEnabled()){
+        driver.findElement(Locators.POPUP_CONFIRM)
+            .click();
+        driver
+            .manage()
+            .timeouts()
+            .implicitlyWait(Duration.ofSeconds(10));
+
+      }
+      else
+        if(SaveUploadOB.isEnabled()){
+          driver.findElement(Locators.POPUP_CONFIRM)
+              .click();
+          driver
+              .manage()
+              .timeouts()
+              .implicitlyWait(Duration.ofSeconds(10));
+          driver.findElement(Locators.UPLOAD_PAGE).click();
+        }
   }
 }

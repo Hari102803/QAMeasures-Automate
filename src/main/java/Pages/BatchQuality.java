@@ -17,7 +17,6 @@ public class BatchQuality extends DriverManager {
         .timeouts()
         .implicitlyWait(Duration.ofSeconds(5));
   }
-
   @Override
   public void OthersClickservice() throws InterruptedException {
     WebElement OBsite = driver.findElement(Locators.OB_TOGGLE);
