@@ -32,17 +32,24 @@ public class Createcasepage extends DriverManager {
       caseData.CreateORdata(FIRST_DATA, LAST_DATA, DATE);
       caseData.ButtonsORclick();
     }
-    else if (OBsite.isDisplayed()) {
-      super.OthersClickservice();
-      Addcaseclick(false);
-      caseData.CreateOBData(FIRST_DATA, LAST_DATA, DATE);
-
-    }
+//    if (ORsite.isDisplayed()) {
+//      OBsite.click();
+//      super.OthersClickservice();
+//      Addcaseclick(false);
+//      caseData.CreateOBData(FIRST_DATA, LAST_DATA, DATE);
+//    }
+//    else
+//      if(OBsite.isDisplayed()) {
+//        ORsite.click();
+//        super.OthersClickservice();
+//        Addcaseclick(true);
+//        caseData.CreateORdata(FIRST_DATA, LAST_DATA, DATE);
+//        caseData.ButtonsORclick();
+//      }
   }
-
   public void Addcaseclick(boolean isOR) {
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    if (isOR) {
+    if(isOR) {
       WebElement addCaseBtn = wait.
           until(ExpectedConditions.elementToBeClickable(Locators.ADD_CASE_OR_SITE));
       addCaseBtn.click();
@@ -53,7 +60,6 @@ public class Createcasepage extends DriverManager {
       addCaseBtn.click();
     }
   }
-
   public void Addcloseclick() {
     driver.findElement(Locators.ADD_CASE_CLOSE_BTN)
         .click();

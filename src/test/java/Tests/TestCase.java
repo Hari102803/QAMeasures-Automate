@@ -30,7 +30,7 @@ public class TestCase extends DriverManager {
     Createcasepage create = new Createcasepage(driver);
     create.choosefacility();
     create.OthersClickservice();
-    create.Addcloseclick();
+    //create.Addcloseclick();
 
     //Others button click  //Batchquality button click
     BatchQuality batch = new BatchQuality(driver);

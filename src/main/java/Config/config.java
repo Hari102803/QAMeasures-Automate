@@ -37,8 +37,7 @@ public class config {
   public static final String GAS_TO_DATE_DEFAULT = "10-09-2025";
   public static final String ORDER_DATE_DEFAULT = "31-01-2025";
 
-  public static final String FIRST_DATA = "Automation";
+  public static final String FIRST_DATA = "Satr";
   public static final String LAST_DATA = "test";
-  public static final String DATE = "19-09-2025";
-
+  public static final String DATE = "24-09-2025";
 }
