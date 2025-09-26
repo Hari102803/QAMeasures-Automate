@@ -123,4 +123,9 @@ public class Locators {
 
   public static final By DOCUMENT_EMERGENCY_YES = By.id("obFlowDocumentEmergencyYes");
   public static final By DOCUMENT_EMERGENCY_NO = By.id("obFlowDocumentEmergencyNo");
+
+  //batch quality case
+  public static final By Case_Quality = By.xpath("//tbody[@id='multipleCaseOptionBody']//input[1]");
+  public static final By QUALITY_COMPLETEQA = By.id("multipleSelectedCasesButton");
+  public static final By QA_BACK_BTN = By.xpath("//*[@id=\"documentEmergencyShow\"]/div/div[2]/div/div[2]/div/div/button");
 }

@@ -3,9 +3,12 @@ package Pages;
 import Config.DriverManager;
 import Config.Locators;
 import Config.config;
+import Services.BatchQualitycase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -33,7 +36,7 @@ public class BatchQuality extends DriverManager {
         .implicitlyWait(Duration.ofSeconds(8));
   }
 
-  public void batchqulaityclick() {
+  public void batchqulaityclick() throws InterruptedException {
     driver.manage()
         .timeouts()
         .implicitlyWait(Duration.ofSeconds(8));
@@ -51,21 +54,26 @@ public class BatchQuality extends DriverManager {
         .implicitlyWait(Duration.ofSeconds(8));
     Select batchfacilitychoose = new Select(facilitychoose);
     batchfacilitychoose.selectByIndex(1);
-
+  if(facilitychoose.isDisplayed()){
     driver.manage()
         .timeouts()
         .implicitlyWait(Duration.ofSeconds(8));
-    driver.findElement(Locators.BATCH_SUBMIT_BTN)
-        .click();
+    WebElement submit = driver.findElement(Locators.BATCH_SUBMIT_BTN);
+    submit.click();
+    if(submit.isDisplayed()){
+      BatchQualitycase Quality = new  BatchQualitycase(driver);
+      Quality.Endocaseclick();
+      }
+    }
   }
-
   public void batchclosebtn() {
     driver.manage()
         .timeouts()
         .implicitlyWait(Duration.ofSeconds(8));
-    WebElement batch = driver.findElement(Locators.BATCH_CLOSE_POPUP);
-    batch.click();
-    if (batch.isEnabled()) {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebElement closeBtn = wait.until(ExpectedConditions.elementToBeClickable(Locators.BATCH_CLOSE_POPUP));
+    closeBtn.click();
+    if (closeBtn.isEnabled()) {
       System.out.println(config.BATCH_QUALITY_VALIDATION);
     }
     else {

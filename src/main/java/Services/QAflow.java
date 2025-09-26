@@ -115,4 +115,16 @@ public class QAflow extends Createacase {
       }
     }
   }
+  public void BatchQualityQAflow(){
+    WebElement DocumentYes = driver.findElement(Locators.DOCUMENT_EMERGENCY_YES);
+    DocumentYes.click();
+    WebElement AdverseNO = driver.findElement(Locators.ADVERSE_NO);
+    if (DocumentYes.isSelected()) {
+      driver
+          .manage()
+          .timeouts()
+          .implicitlyWait(Duration.ofSeconds(8));
+      AdverseNO.click();
+    }
+  }
 }
